@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glitcherdle - Guess the Glitcher</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🎮 Glitcherdle</h1>
+        <p class="subtitle">Guess the Glitcher of the day!</p>
+        
+        <div class="attempts">Attempts: <span id="attemptCount">0</span>/8</div>
+        
+        <div class="search-container">
+            <input 
+                type="text" 
+                id="searchInput" 
+                placeholder="Type a Glitcher name..."
+                autocomplete="off"
+            >
+            <div class="suggestions" id="suggestions"></div>
+        </div>
+
+        <div class="guesses">
+            <div class="guess-header">
+                <div>Glitcher</div>
+                <div>Valorant</div>
+                <div>LoL</div>
+                <div>Country</div>
+                <div>Spy</div>
+                <div>Trash</div>
+            </div>
+            <div id="guessesContainer"></div>
+        </div>
+
+        <div id="result"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

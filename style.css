@@ -1,0 +1,252 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                      url('glit.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    color: black; /* Better contrast for text */
+}
+
+.container {
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    max-width: 1000px;
+    width: 100%;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+}
+
+h1 {
+    text-align: center;
+    color: #667eea;
+    margin-bottom: 10px;
+    font-size: 2.5em;
+}
+
+.subtitle {
+    text-align: center;
+    color: #666;
+    margin-bottom: 20px;
+    font-size: 0.9em;
+}
+
+.attempts {
+    text-align: center;
+    color: #666;
+    margin-bottom: 20px;
+    font-size: 1.1em;
+    font-weight: 600;
+}
+
+.search-container {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+#searchInput {
+    width: 100%;
+    padding: 15px;
+    font-size: 16px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    transition: border-color 0.3s;
+}
+
+#searchInput:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+#searchInput:disabled {
+    background: #f5f5f5;
+    cursor: not-allowed;
+}
+
+.suggestions {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: white;
+    border: 2px solid #ddd;
+    border-top: none;
+    border-radius: 0 0 10px 10px;
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 100;
+    display: none;
+}
+
+.suggestions.show {
+    display: block;
+}
+
+.suggestion-item {
+    padding: 12px 15px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.suggestion-item:hover {
+    background: #f0f0f0;
+}
+
+.guesses {
+    margin-bottom: 30px;
+}
+
+.guess-header {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr 1fr;
+    gap: 10px;
+    padding: 10px;
+    background: #f5f5f5;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    font-size: 0.85em;
+    text-align: center;
+}
+
+.guess-row {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 10px;
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.guess-cell {
+    padding: 15px 8px;
+    text-align: center;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.9em;
+    transition: all 0.3s;
+}
+
+.correct {
+    background: #4caf50;
+    color: white;
+}
+
+.incorrect {
+    background: #f44336;
+    color: white;
+}
+
+.partial {
+    background: #ff9800;
+    color: white;
+}
+
+.higher {
+    background: #2196f3;
+    color: white;
+}
+
+.lower {
+    background: #9c27b0;
+    color: white;
+}
+
+.victory {
+    text-align: center;
+    padding: 30px;
+    background: linear-gradient(135deg, #4caf50 0%, #45a049 100%);
+    color: white;
+    border-radius: 15px;
+    margin-top: 20px;
+    animation: bounce 0.5s ease-out;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+.victory h2 {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.defeat {
+    text-align: center;
+    padding: 30px;
+    background: linear-gradient(135deg, #f44336 0%, #d32f2f 100%);
+    color: white;
+    border-radius: 15px;
+    margin-top: 20px;
+}
+
+.defeat h2 {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.defeat p {
+    font-size: 1.2em;
+    margin-top: 10px;
+}
+
+.reset-btn {
+    display: block;
+    margin: 20px auto 0;
+    padding: 12px 30px;
+    background: white;
+    color: #667eea;
+    border: none;
+    border-radius: 8px;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.reset-btn:hover {
+    transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+    
+    h1 {
+        font-size: 2em;
+    }
+    
+    .guess-header,
+    .guess-row {
+        grid-template-columns: repeat(6, 1fr);
+        font-size: 0.65em;
+    }
+    
+    .guess-cell {
+        padding: 8px 4px;
+    }
+}
